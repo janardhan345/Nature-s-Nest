@@ -5,10 +5,10 @@ import { MotionSection, MotionDiv, MotionH2, MotionImage, fadeInUp, staggerConta
 const GalleryItem = ({ imageSrc, altText }) => {
   return (
     <MotionDiv 
-      className="overflow-hidden rounded-lg aspect-[4/3]"
+      className="overflow-hidden rounded-lg aspect-[4/3] cursor-pointer relative group"
       variants={fadeInUp}
-      whileHover={{ scale: 1.02 }}
-      transition={{ duration: 0.3 }}
+      whileHover={{ scale: 1.02, boxShadow: '0 10px 30px rgba(71, 98, 79, 0.15)' }}
+      transition={{ duration: 0.4 }}
     >
       <MotionImage 
         src={imageSrc} 
@@ -17,6 +17,9 @@ const GalleryItem = ({ imageSrc, altText }) => {
         initial={{ scale: 1 }}
         whileHover={{ scale: 1.1 }}
       />
+      <div className="absolute inset-0 bg-deep-green bg-opacity-0 group-hover:bg-opacity-30 transition-all duration-300 flex items-center justify-center">
+        <span className="text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-lg font-playfair">View Resort</span>
+      </div>
     </MotionDiv>
   );
 };
@@ -34,11 +37,12 @@ const Gallery = () => {
 
   return (
     <MotionSection 
-      className="py-20 px-6 bg-soft-sand bg-opacity-20"
+      className="py-20 px-6 bg-beige bg-opacity-20"
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true, amount: 0.2 }}
       variants={staggerContainer}
+      id="gallery"
     >
       <div className="container mx-auto">
         <MotionH2 
@@ -48,7 +52,7 @@ const Gallery = () => {
           Experience Natural Luxury
         </MotionH2>
         
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {galleryImages.map((image, index) => (
             <GalleryItem 
               key={index}

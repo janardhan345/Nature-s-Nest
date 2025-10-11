@@ -19,6 +19,7 @@ module.exports = {
       },
       backgroundImage: {
         'hero-pattern': "url('/images/hero-bg.jpg')",
+        'gradient-to-b-green': 'linear-gradient(to bottom, rgba(71, 98, 79, 0.8), rgba(71, 98, 79, 0.3))',
       },
       height: {
         'screen-80': '80vh',

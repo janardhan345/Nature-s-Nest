@@ -5,11 +5,16 @@ import { MotionSection, MotionDiv, MotionH2, MotionP, MotionImage, fadeInUp, sta
 const TestimonialCard = ({ quote, author, location, imageSrc }) => {
   return (
     <MotionDiv 
-      className="bg-white p-6 rounded-lg shadow-sm border border-soft-sand flex flex-col items-center"
+      className="bg-white p-8 rounded-lg shadow-md border border-soft-sand flex flex-col items-center"
       variants={fadeInUp}
-      whileHover={{ y: -5, transition: { duration: 0.3 } }}
+      whileHover={{ 
+        y: -8, 
+        boxShadow: '0 15px 30px rgba(0, 0, 0, 0.1)', 
+        borderColor: '#A8D5BA',
+        transition: { duration: 0.4 } 
+      }}
     >
-      <div className="w-20 h-20 rounded-full overflow-hidden mb-4">
+      <div className="w-20 h-20 rounded-full overflow-hidden mb-6 border-2 border-mint-green">
         <MotionImage 
           src={imageSrc} 
           alt={author} 
@@ -19,12 +24,14 @@ const TestimonialCard = ({ quote, author, location, imageSrc }) => {
         />
       </div>
       
-      <MotionP className="italic text-gray-600 text-center mb-4">
-        "{quote}"
+      <MotionP className="italic text-gray-600 text-center mb-6 relative">
+        <span className="absolute -left-2 -top-4 text-4xl text-mint-green opacity-30">"</span>
+        {quote}
+        <span className="absolute -right-2 -bottom-4 text-4xl text-mint-green opacity-30">"</span>
       </MotionP>
       
-      <div className="text-center">
-        <p className="font-playfair text-deep-green">{author}</p>
+      <div className="text-center mt-2">
+        <p className="font-playfair text-deep-green text-lg">{author}</p>
         <p className="text-sm text-gray-500">{location}</p>
       </div>
     </MotionDiv>
@@ -55,11 +62,12 @@ const Testimonials = () => {
 
   return (
     <MotionSection 
-      className="py-20 px-6 bg-white"
+      className="py-20 px-6 bg-mint-green bg-opacity-5"
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true, amount: 0.3 }}
       variants={staggerContainer}
+      id="testimonials"
     >
       <div className="container mx-auto">
         <MotionH2 

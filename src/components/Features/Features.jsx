@@ -5,11 +5,11 @@ import { MotionSection, MotionDiv, MotionH2, fadeInUp, staggerContainer } from '
 const FeatureCard = ({ title, description, icon }) => {
   return (
     <MotionDiv 
-      className="bg-white p-8 rounded-lg shadow-sm border border-soft-sand hover:shadow-md transition-shadow duration-300"
+      className="bg-white p-8 rounded-lg shadow-sm border border-soft-sand hover:shadow-lg transition-all duration-300"
       variants={fadeInUp}
-      whileHover={{ y: -5, transition: { duration: 0.3 } }}
+      whileHover={{ y: -5, boxShadow: '0 10px 25px rgba(0, 0, 0, 0.08)', transition: { duration: 0.3 } }}
     >
-      <div className="text-deep-green mb-4 w-16 h-16 mx-auto">
+      <div className="text-mint-green mb-4 w-16 h-16 mx-auto">
         {icon}
       </div>
       <h3 className="font-playfair text-2xl mb-3 text-center text-deep-green">{title}</h3>
@@ -80,6 +80,7 @@ const Features = () => {
       whileInView="visible"
       viewport={{ once: true, amount: 0.3 }}
       variants={staggerContainer}
+      id="features"
     >
       <div className="container mx-auto">
         <MotionH2 

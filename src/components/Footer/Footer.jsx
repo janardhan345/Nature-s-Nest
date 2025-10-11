@@ -44,12 +44,20 @@ const Footer = () => {
   const currentYear = new Date().getFullYear();
   
   return (
-    <footer className="bg-deep-green text-white py-12">
-      <div className="container mx-auto px-6">
+    <footer className="bg-deep-green text-white py-12 relative z-10 border-t border-mint-green border-opacity-20" id="footer">
+      {/* Force footer to be visible in all modes */}
+      <div className="absolute inset-0 bg-deep-green z-0"></div>
+      <div className="container mx-auto px-6 relative z-10">
         <div className="flex flex-col md:flex-row justify-between items-center mb-8">
           <div className="mb-6 md:mb-0">
             <div className="flex items-center gap-3">
-              <LeafLogo />
+              <MotionDiv 
+                initial={{ rotate: 0 }}
+                whileHover={{ rotate: 15, scale: 1.1 }}
+                transition={{ type: "spring", stiffness: 200 }}
+              >
+                <LeafLogo />
+              </MotionDiv>
               <span className="font-playfair text-2xl">Nature's Nest</span>
             </div>
           </div>
@@ -125,7 +133,7 @@ const Footer = () => {
           </div>
         </div>
         
-        <div className="border-t border-mint-green border-opacity-30 pt-6 text-center text-sm text-mint-green text-opacity-70">
+        <div className="border-t border-mint-green border-opacity-30 pt-6 text-center text-sm text-mint-green">
           <p>&copy; {currentYear} Nature's Nest. All rights reserved.</p>
         </div>
       </div>

@@ -1,21 +1,27 @@
 @import "tailwindcss";
 
 :root {
+  /* Theme Colors */
   --mint-green: #A8D5BA;
   --beige: #F6EAD4;
   --soft-sand: #E0D6C3;
   --deep-green: #47624F;
   
+  /* Base UI Colors */
   --background: #ffffff;
   --foreground: #171717;
-}
-
-/* Theme variables */
-:root {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
+  
+  /* Typography */
   --font-sans: var(--font-poppins);
   --font-serif: var(--font-playfair-display);
+  
+  /* Color Applications */
+  --primary-bg: var(--mint-green);
+  --secondary-bg: var(--beige);
+  --accent-bg: var(--deep-green);
+  --neutral-bg: var(--soft-sand);
+  --text-on-dark: var(--beige);
+  --text-on-light: var(--deep-green);
 }
 
 body {
@@ -27,4 +33,9 @@ body {
 
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-serif), serif;
+}
+
+/* Add smooth transitions for all interactive elements */
+a, button {
+  transition: all 0.3s ease;
 }
