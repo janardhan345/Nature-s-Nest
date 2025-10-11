@@ -1,0 +1,88 @@
+'use client';
+
+import { MotionSection, MotionDiv, MotionH2, MotionP, MotionImage, fadeInUp, staggerContainer } from '../animations/motion';
+
+const TestimonialCard = ({ quote, author, location, imageSrc }) => {
+  return (
+    <MotionDiv 
+      className="bg-white p-6 rounded-lg shadow-sm border border-soft-sand flex flex-col items-center"
+      variants={fadeInUp}
+      whileHover={{ y: -5, transition: { duration: 0.3 } }}
+    >
+      <div className="w-20 h-20 rounded-full overflow-hidden mb-4">
+        <MotionImage 
+          src={imageSrc} 
+          alt={author} 
+          className="w-full h-full object-cover"
+          whileHover={{ scale: 1.1 }}
+          transition={{ duration: 0.3 }}
+        />
+      </div>
+      
+      <MotionP className="italic text-gray-600 text-center mb-4">
+        "{quote}"
+      </MotionP>
+      
+      <div className="text-center">
+        <p className="font-playfair text-deep-green">{author}</p>
+        <p className="text-sm text-gray-500">{location}</p>
+      </div>
+    </MotionDiv>
+  );
+};
+
+const Testimonials = () => {
+  const testimonials = [
+    {
+      quote: "Our stay at Nature's Nest was transformative. The connection with nature while enjoying luxurious comfort was exactly what we needed.",
+      author: "Emma & James",
+      location: "London, UK",
+      image: "/images/testimonial-1.jpg"
+    },
+    {
+      quote: "The sustainable approach to luxury hospitality sets a new standard. We left feeling refreshed and inspired.",
+      author: "Sophie & Michael",
+      location: "Berlin, Germany",
+      image: "/images/testimonial-2.jpg"
+    },
+    {
+      quote: "The attention to detail and commitment to sustainability without compromising on luxury was remarkable.",
+      author: "Olivia & Liam",
+      location: "Sydney, Australia",
+      image: "/images/testimonial-3.jpg"
+    }
+  ];
+
+  return (
+    <MotionSection 
+      className="py-20 px-6 bg-white"
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, amount: 0.3 }}
+      variants={staggerContainer}
+    >
+      <div className="container mx-auto">
+        <MotionH2 
+          className="text-3xl md:text-4xl text-deep-green font-playfair text-center mb-16"
+          variants={fadeInUp}
+        >
+          What Our Guests Say
+        </MotionH2>
+        
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          {testimonials.map((testimonial, index) => (
+            <TestimonialCard 
+              key={index}
+              quote={testimonial.quote}
+              author={testimonial.author}
+              location={testimonial.location}
+              imageSrc={testimonial.image}
+            />
+          ))}
+        </div>
+      </div>
+    </MotionSection>
+  );
+};
+
+export default Testimonials;
