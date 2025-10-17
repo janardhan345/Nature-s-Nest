@@ -1,40 +1,22 @@
 'use client';
 
-import { MotionSection, MotionDiv, MotionH2, MotionP, MotionImage, fadeInUp, staggerContainer } from '../animations/motion';
 
 const TestimonialCard = ({ quote, author, location, imageSrc }) => {
   return (
-    <MotionDiv 
-      className="bg-white p-8 rounded-lg shadow-md border border-soft-sand flex flex-col items-center"
-      variants={fadeInUp}
-      whileHover={{ 
-        y: -8, 
-        boxShadow: '0 15px 30px rgba(0, 0, 0, 0.1)', 
-        borderColor: '#A8D5BA',
-        transition: { duration: 0.4 } 
-      }}
-    >
-      <div className="w-20 h-20 rounded-full overflow-hidden mb-6 border-2 border-mint-green">
-        <MotionImage 
-          src={imageSrc} 
-          alt={author} 
-          className="w-full h-full object-cover"
-          whileHover={{ scale: 1.1 }}
-          transition={{ duration: 0.3 }}
-        />
+    <div className="bg-[var(--beige)] p-8 rounded-lg shadow-md border border-[var(--soft-sand)] flex flex-col items-center hover:shadow-lg transform hover:-translate-y-2 transition-all duration-300">
+      <div className="w-20 h-20 rounded-full overflow-hidden mb-6 border-2 border-[var(--mint-green)]">
+        <img src={imageSrc} alt={author} className="w-full h-full object-cover" />
       </div>
-      
-      <MotionP className="italic text-gray-600 text-center mb-6 relative">
-        <span className="absolute -left-2 -top-4 text-4xl text-mint-green opacity-30">"</span>
+      <p className="italic text-gray-600 text-center mb-6 relative">
+        <span className="absolute -left-2 -top-4 text-4xl text-[var(--mint-green)] opacity-30">"</span>
         {quote}
-        <span className="absolute -right-2 -bottom-4 text-4xl text-mint-green opacity-30">"</span>
-      </MotionP>
-      
+        <span className="absolute -right-2 -bottom-4 text-4xl text-[var(--mint-green)] opacity-30">"</span>
+      </p>
       <div className="text-center mt-2">
-        <p className="font-playfair text-deep-green text-lg">{author}</p>
+        <p className="font-playfair text-[var(--deep-green)] text-lg">{author}</p>
         <p className="text-sm text-gray-500">{location}</p>
       </div>
-    </MotionDiv>
+    </div>
   );
 };
 
@@ -61,22 +43,9 @@ const Testimonials = () => {
   ];
 
   return (
-    <MotionSection 
-      className="py-20 px-6 bg-mint-green bg-opacity-5"
-      initial="hidden"
-      whileInView="visible"
-      viewport={{ once: true, amount: 0.3 }}
-      variants={staggerContainer}
-      id="testimonials"
-    >
+    <section className="py-20 px-6 bg-[var(--mint-green)] bg-opacity-5" id="testimonials">
       <div className="container mx-auto">
-        <MotionH2 
-          className="text-3xl md:text-4xl text-deep-green font-playfair text-center mb-16"
-          variants={fadeInUp}
-        >
-          What Our Guests Say
-        </MotionH2>
-        
+        <h2 className="text-3xl md:text-4xl text-[var(--mint-green)] font-playfair text-center mb-16">What Our Guests Say</h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {testimonials.map((testimonial, index) => (
             <TestimonialCard 
@@ -89,7 +58,7 @@ const Testimonials = () => {
           ))}
         </div>
       </div>
-    </MotionSection>
+    </section>
   );
 };
 

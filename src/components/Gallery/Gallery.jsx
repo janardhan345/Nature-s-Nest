@@ -1,26 +1,17 @@
 'use client';
 
-import { MotionSection, MotionDiv, MotionH2, MotionImage, fadeInUp, staggerContainer } from '../animations/motion';
-
 const GalleryItem = ({ imageSrc, altText }) => {
   return (
-    <MotionDiv 
-      className="overflow-hidden rounded-lg aspect-[4/3] cursor-pointer relative group"
-      variants={fadeInUp}
-      whileHover={{ scale: 1.02, boxShadow: '0 10px 30px rgba(71, 98, 79, 0.15)' }}
-      transition={{ duration: 0.4 }}
-    >
-      <MotionImage 
+    <div className="overflow-hidden rounded-lg aspect-[4/3] cursor-pointer relative group hover:shadow-lg transform hover:scale-[1.02] transition-all duration-300">
+      <img 
         src={imageSrc} 
         alt={altText} 
-        className="w-full h-full object-cover transform transition-transform duration-700 ease-out"
-        initial={{ scale: 1 }}
-        whileHover={{ scale: 1.1 }}
+        className="w-full h-full object-cover transform transition-transform duration-700 ease-out group-hover:scale-110"
       />
       <div className="absolute inset-0 bg-deep-green bg-opacity-0 group-hover:bg-opacity-30 transition-all duration-300 flex items-center justify-center">
         <span className="text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-lg font-playfair">View Resort</span>
       </div>
-    </MotionDiv>
+    </div>
   );
 };
 
@@ -36,21 +27,9 @@ const Gallery = () => {
   ];
 
   return (
-    <MotionSection 
-      className="py-20 px-6 bg-beige bg-opacity-20"
-      initial="hidden"
-      whileInView="visible"
-      viewport={{ once: true, amount: 0.2 }}
-      variants={staggerContainer}
-      id="gallery"
-    >
+    <section className="py-20 px-6 bg-[var(--beige)] bg-opacity-20" id="gallery">
       <div className="container mx-auto">
-        <MotionH2 
-          className="text-3xl md:text-4xl text-deep-green font-playfair text-center mb-16"
-          variants={fadeInUp}
-        >
-          Experience Natural Luxury
-        </MotionH2>
+        <h2 className="text-3xl md:text-4xl text-[var(--deep-green)] font-playfair text-center mb-16">Experience Natural Luxury</h2>
         
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {galleryImages.map((image, index) => (
@@ -62,7 +41,7 @@ const Gallery = () => {
           ))}
         </div>
       </div>
-    </MotionSection>
+    </section>
   );
 };
 
