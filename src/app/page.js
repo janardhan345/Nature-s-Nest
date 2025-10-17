@@ -1,7 +1,6 @@
 import dynamic from 'next/dynamic';
 import Layout from '@/components/Layout';
 
-// Use dynamic imports to prevent server/client hydration mismatch
 const Hero = dynamic(() => import('@/components/Hero/Hero'), { ssr: true });
 const Features = dynamic(() => import('@/components/Features/Features'), { ssr: true });
 const Gallery = dynamic(() => import('@/components/Gallery/Gallery'), { ssr: true });
