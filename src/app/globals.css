@@ -39,3 +39,25 @@ h1, h2, h3, h4, h5, h6 {
 a, button {
   transition: all 0.3s ease;
 }
+
+/* Custom leaf cursor globally */
+/* Hotspot set near the leaf stem tip (x=4, y=4). */
+/* Fallback to auto for any browser that can't load the SVG. */
+html,
+body {
+  cursor: url('/images/cursor/leaf-cursor.svg') 4 4, auto;
+}
+
+/* Ensure interactive elements also use the custom cursor with pointer fallback */
+a, button, [role="button"], input[type="button"], input[type="submit"], input[type="reset"], label {
+  cursor: url('/images/cursor/leaf-cursor.svg') 4 4, pointer;
+}
+
+/* On touch/coarse pointers, keep default cursor behavior to avoid odd UX */
+@media (pointer: coarse) {
+  html,
+  body,
+  a, button, [role="button"], input[type="button"], input[type="submit"], input[type="reset"], label {
+    cursor: auto;
+  }
+}

@@ -6,7 +6,7 @@ import Image from 'next/image';
 
 const Hero = () => {
   return (
-    <section className="relative h-screen min-h-[90vh] bg-[var(--deep-green)] text-white overflow-hidden">
+    <section className="relative h-screen min-h-[90vh] bg-[var(--deep-green)]] overflow-hidden">
       {/* Background image with proper loading */}
       <div className="inset-2 z-2">
         <Image 
@@ -25,9 +25,9 @@ const Hero = () => {
       <FloatingLeaves />
       
       <div className="container mx-auto px-6 relative z-20 h-full flex flex-col justify-center items-center text-center">
-        <h1 className="font-playfair text-5xl md:text-7xl mb-4 text-beige">Heaven, Naturally.</h1>
-        
-        <p className="font-poppins text-xl md:text-2xl mb-10 max-w-2xl text-[var(--soft-sand)]">Escape to eco-crafted luxury resorts designed in harmony with nature.</p>
+        <h1 className="font-playfair text-5xl md:text-7xl mb-4 text-[var(--beige)] bg-[var(--deep-green)] inline-block rounded-3xl px-4 py-2">Heaven, Naturally.</h1>
+
+        <p className="font-poppins text-xl md:text-2xl mb-10 max-w-2xl text-[var(--soft-sand)] bg-[var(--deep-green)] inline-block rounded-3xl px-4 py-2">Escape to eco-crafted luxury resorts designed in harmony with nature.</p>
         
         <div className="flex flex-col sm:flex-row gap-6">
           <Link href="#booking" className="group">
