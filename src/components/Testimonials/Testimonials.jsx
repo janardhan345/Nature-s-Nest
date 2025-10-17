@@ -3,7 +3,7 @@
 
 const TestimonialCard = ({ quote, author, location, imageSrc }) => {
   return (
-    <div className="bg-[var(--beige)] p-8 rounded-lg shadow-md border border-[var(--soft-sand)] flex flex-col items-center hover:shadow-lg transform hover:-translate-y-2 transition-all duration-300">
+    <div className="bg-[var(--soft-sand)] p-8 rounded-lg shadow-md border border-[var(--soft-sand)] flex flex-col items-center hover:shadow-lg transform hover:-translate-y-2 transition-all duration-300 hover:bg-[var(--beige)]">
       <div className="w-20 h-20 rounded-full overflow-hidden mb-6 border-2 border-[var(--mint-green)]">
         <img src={imageSrc} alt={author} className="w-full h-full object-cover" />
       </div>
