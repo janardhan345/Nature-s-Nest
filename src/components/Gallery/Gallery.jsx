@@ -1,12 +1,16 @@
 'use client';
 
+import Image from 'next/image';
+
 const GalleryItem = ({ imageSrc, altText }) => {
   return (
     <div className="overflow-hidden rounded-lg aspect-[4/3] cursor-pointer relative group hover:shadow-lg transform hover:scale-[1.02] transition-all duration-300">
-      <img 
+      <Image 
         src={imageSrc} 
-        alt={altText} 
-        className="w-full h-full object-cover transform transition-transform duration-700 ease-out group-hover:scale-110"
+        alt={altText}
+        fill
+        sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+        className="object-cover transform transition-transform duration-700 ease-out group-hover:scale-110"
       />
       <div className="absolute inset-0 bg-deep-green bg-opacity-0 group-hover:bg-opacity-30 transition-all duration-300 flex items-center justify-center">
         <span className="text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-lg font-playfair">View Resort</span>

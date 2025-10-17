@@ -71,6 +71,30 @@ yarn dev
 
 4. Open your browser and navigate to [http://localhost:3000](http://localhost:3000)
 
+## Deploying to GitHub Pages
+
+This project is configured to deploy as a static site to GitHub Pages (project pages) using GitHub Actions.
+
+1) Repository settings
+- Ensure your repository is named `Nature-s-Nest` (or update `repoName` in `next.config.mjs`).
+- In your GitHub repo, go to Settings → Pages and set Source to "GitHub Actions".
+
+2) Push to main/master
+- On push to `main` or `master`, the workflow `.github/workflows/deploy.yml` builds and exports the site to `out/` and deploys it to Pages.
+- Your site will be available at: `https://<username>.github.io/Nature-s-Nest/`.
+
+3) Manual deploy (optional)
+- You can also deploy manually using the `gh-pages` branch:
+	- Ensure you have the GitHub CLI or set up a token for `gh-pages` package.
+	- Run:
+		- `npm run predeploy`
+		- `npm run deploy`
+	- This publishes the `out/` directory to the `gh-pages` branch.
+
+Notes
+- GitHub Pages serves project sites under a subpath. The config sets `basePath` and `assetPrefix` in production so all links/assets resolve under `/Nature-s-Nest/`.
+- Static image optimization is disabled with `images.unoptimized` to support `next export`.
+
 ## Customization
 
 ### Colors

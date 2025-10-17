@@ -1,11 +1,12 @@
 'use client';
 
+import Image from 'next/image';
 
 const TestimonialCard = ({ quote, author, location, imageSrc }) => {
   return (
     <div className="bg-[var(--soft-sand)] p-8 rounded-lg shadow-md border border-[var(--soft-sand)] flex flex-col items-center hover:shadow-lg transform hover:-translate-y-2 transition-all duration-300 hover:bg-[var(--beige)]">
-      <div className="w-20 h-20 rounded-full overflow-hidden mb-6 border-2 border-[var(--mint-green)]">
-        <img src={imageSrc} alt={author} className="w-full h-full object-cover" />
+      <div className="w-20 h-20 rounded-full overflow-hidden mb-6 border-2 border-[var(--mint-green)] relative">
+        <Image src={imageSrc} alt={author} fill sizes="80px" className="object-cover" />
       </div>
       <p className="italic text-gray-600 text-center mb-6 relative">
         <span className="absolute -left-2 -top-4 text-4xl text-[var(--mint-green)] opacity-30">"</span>
